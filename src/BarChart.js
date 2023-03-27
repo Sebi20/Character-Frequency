@@ -1,9 +1,7 @@
 import React from "react";
-import { CategoryScale } from "chart.js";
-import Chart from "chart.js/auto";
 import {Bar} from 'react-chartjs-2'
 
-Chart.register(CategoryScale);
+
 function BarChart(props){
     return(
         <>

@@ -1,7 +1,34 @@
 import './App.css';
 import { useEffect, useState } from "react";
 import BarChart from "./BarChart";
+import PieChart from './PieChart';
 import React from 'react'
+import styled from 'styled-components';
+import { CategoryScale } from "chart.js";
+import Chart from "chart.js/auto";
+
+Chart.register(CategoryScale);
+
+const Input = styled.input.attrs({ 
+  type: 'text',
+})`
+  margin-top:10px;
+  border-radius:4px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+
+`
+
+const ChartDiv = styled.div`
+  margin-top: 20px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: 200px 200px;
+  background-color: red;
+  width: 2000px;
+`
 
 
 function App() {
@@ -17,9 +44,6 @@ function App() {
     map.forEach((values, keys)=>{
       console.log(values + " "+ keys);
      })
-
-     console.log(Array.from(map.keys()))
-     console.log(Array.from(map.values()))
 
      setData(Array.from(map.values()));
      setlabels(Array.from(map.keys()));
@@ -44,15 +68,20 @@ function App() {
 
   
 
-  return (
+  return ( 
     <>
-      <input type="text" onChange={getFreq}/>
-      <div className='firstBarChart'>
+    <Input onChange={getFreq}/>
+      <ChartDiv>
         <BarChart
           labels = {labels}
           data = {data}
+        
         />
-      </div>
+        {/* <PieChart
+          labels = {labels}
+          data = {data}
+        /> */}
+      </ChartDiv>
     
     </>
   );
