@@ -7,7 +7,9 @@ function BarChart(props){
         <>
             <Bar
                 data={{
-                    labels: props.labels,
+                    labels: props.labels.map((element)=>{ 
+                        return `${element}`
+                    }),
                     datasets: [{
                         label: 'Character Frequencies',
                         backgroundColor: 'rgba(75,192,192,1)',
@@ -22,7 +24,10 @@ function BarChart(props){
                     text:'Average Rainfall per month',
                     fontSize:20
                     },
+
+                    maintainAspectRatio: true,
                 }}
+
                 
             />
         </>

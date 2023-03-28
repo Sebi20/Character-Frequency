@@ -4,13 +4,14 @@ import BarChart from "./BarChart";
 import PieChart from './PieChart';
 import React from 'react'
 import styled from 'styled-components';
-import { CategoryScale } from "chart.js";
+import { CategoryScale, elements } from "chart.js";
 import Chart from "chart.js/auto";
 
 Chart.register(CategoryScale);
 
 const Input = styled.input.attrs({ 
   type: 'text',
+  placeholder: 'Type some words...',
 })`
   margin-top:10px;
   border-radius:4px;
@@ -20,14 +21,22 @@ const Input = styled.input.attrs({
 
 `
 
-const ChartDiv = styled.div`
-  margin-top: 20px;
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  grid-template-columns: 200px 200px;
-  background-color: red;
-  width: 2000px;
+const BarChartDiv = styled.div`
+  margin-top: 50px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 500px;
+  height: 400px;
+`
+
+const PieChartDiv = styled.div`
+  margin-top: 50px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 500px;
+  height: 400px;
 `
 
 
@@ -46,7 +55,12 @@ function App() {
      })
 
      setData(Array.from(map.values()));
-     setlabels(Array.from(map.keys()));
+     setlabels(Array.from(map.keys()).map((element)=>{
+      if(element === " "){
+        return "space"
+      }
+      return element;
+     }))
 
   }, [map])
 
@@ -71,17 +85,20 @@ function App() {
   return ( 
     <>
     <Input onChange={getFreq}/>
-      <ChartDiv>
+      <BarChartDiv>
         <BarChart
           labels = {labels}
           data = {data}
         
         />
-        {/* <PieChart
+        </BarChartDiv>
+        
+        <PieChartDiv>
+        <PieChart
           labels = {labels}
           data = {data}
-        /> */}
-      </ChartDiv>
+        />
+        </PieChartDiv>
     
     </>
   );
