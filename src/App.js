@@ -44,6 +44,7 @@ function App() {
   const[map, setMap] = useState(new Map());
   const[labels, setlabels] = useState([])
   const[data, setData] = useState([])
+  const[colors, setColors] = useState([]);
   const tempMap = new Map();
 
 

@@ -9,7 +9,9 @@ function PieChart(props){
                 labels: props.labels,
                 datasets: [{
                     label: 'Character Frequencies',
-                    backgroundColor: 'rgba(255,255,255,1)',
+                    backgroundColor: [
+                        "rgb(120, 220, 20)", "green", "blue", "purple", "magenta"
+                      ],
                     borderColor: 'rgba(0,0,0,1)',
                     borderWidth: 2,
                     data: props.data

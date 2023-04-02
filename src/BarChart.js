@@ -12,7 +12,9 @@ function BarChart(props){
                     }),
                     datasets: [{
                         label: 'Character Frequencies',
-                        backgroundColor: 'rgba(75,192,192,1)',
+                        backgroundColor: [
+                            "rgb(120, 220, 20)", "green", "blue", "purple", "magenta"
+                          ],
                         borderColor: 'rgba(0,0,0,1)',
                         borderWidth: 2,
                         data: props.data
