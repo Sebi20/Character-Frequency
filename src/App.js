@@ -9,7 +9,9 @@ import Chart from "chart.js/auto";
 
 Chart.register(CategoryScale);
 
-const Input = styled.textarea`
+const Input = styled.textarea.attrs({
+  placeholder: "Start typing here...."
+})`
   width: 300px;
   height: 150px;
   margin-top:10px;
