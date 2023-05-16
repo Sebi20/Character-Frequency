@@ -9,10 +9,9 @@ import Chart from "chart.js/auto";
 
 Chart.register(CategoryScale);
 
-const Input = styled.input.attrs({ 
-  type: 'text',
-  placeholder: 'Type some words...',
-})`
+const Input = styled.textarea`
+  width: 300px;
+  height: 150px;
   margin-top:10px;
   border-radius:4px;
   display: block;
@@ -67,7 +66,7 @@ function App() {
 
   function getFreq(event){
     let string = event.target.value;
-    console.log(string);
+    
 
     for(let i = 0; i < string.length; i++){
       if(tempMap.has(string.charAt(i)) === false){
